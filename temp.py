@@ -1,17 +1,17 @@
 ﻿# -*- coding: utf-8 -*-
 import docx
 import random
-path='temp.docx'
+path='temp.docx'#读取文档
 doc=docx.Document(path)
-tbs=doc.tables
+tbs=doc.tables#读取文档中的表格
 tb=tbs[0]
-def fill(a,Text):
+def fill(a,Text): #填写表格
     row=tb.rows[a]
     for cell in row.cells[1:]:
         cell.text=Text
     return
 
-def Rand(a):
+def Rand(a):#生成正常体温范围内的随机数
     row=tb.rows[a]
     for cell in row.cells[1:]:
         tmp=random.uniform(36.2,36.8)
